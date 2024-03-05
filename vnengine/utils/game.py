@@ -239,7 +239,7 @@ class _Game:
                 
         self.text.draw(self.screen)
 
-        scene_title = self.current_scene
+        scene_title = self.translator.translate(self.current_scene, src='pt', dest=self.language).text
         title_font = pygame.font.Font(None, 48)
         if self.background.get_at((0, 0)) == (255, 255, 255) or sum(self.background.get_at((self.resolution[self.res_chosen][0] // 2, 25))) > 600:
             title_text = title_font.render(scene_title, True, (0, 0, 0))
@@ -272,7 +272,7 @@ class _Game:
             
         self.text.draw(self.screen)
 
-        scene_title = self.current_scene
+        scene_title = self.translator.translate(self.current_scene, src='pt', dest=self.language).text
         title_font = pygame.font.Font(None, 48)
         if self.background.get_at((0, 0)) == (255, 255, 255) or sum(self.background.get_at((self.resolution[self.res_chosen][0] // 2, 25))) > 600:
             title_text = title_font.render(scene_title, True, (0, 0, 0))
