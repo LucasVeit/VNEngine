@@ -9,6 +9,8 @@ Contents:
 
 - API Reference: Contains the API documentation for VNEngine. 
 
+- CLI Reference: Contains the information for building an executable from a script using cli. 
+
 - Search: Allows you to search for specific topics within the documentation.
 
 .. toctree::
@@ -187,3 +189,41 @@ Set Language
          
       Note:
          - The default language is the language in which the game opens everytime.
+
+CLI Reference
+==================
+
+To build an executable from a script using the CLI, you need to have the VNEngine installed. After that, you can use the following command to build the executable:
+
+Subcommands
+-----------
+
+- `build`: This command is used to build the project.
+
+Arguments
+---------
+
+- `--resolutions`: Specify the resolutions of the Project. Possible values are `hd`, `fullhd`, `4k`. This argument is required.
+- `--initial_lang`: Set the default language that the game starts in. This argument is required.
+- `--languages`: Define the languages available to be chosen. Possible values are 'de' (German), 'en' (English), 'es' (Spanish), 'fr' (French), and 'pt' (Portuguese). This argument is required.
+- `--input`: Provide the name of the input file to be executed. This argument is required.
+- `--output`: Specify the folder destination of the executable. This argument is required.
+
+If no subcommand is provided, the CLI will print a message indicating that no action was given and suggest using `-h` to see the available actions.
+
+If the 'build' subcommand is provided, the CLI will call the build function with the provided arguments.
+
+If an unknown subcommand is provided, the CLI will print a message indicating that the action is unknown.
+
+Example
+-------
+
+Here is an example of how to use the CLI to build a project:
+
+.. code-block:: bash
+
+   python -m vnengine.cli build --resolutions=hd --initial_lang=en --languages=de,en,es,fr,pt --input=C:/project/visualnovel.py --output=C:/project/build
+
+This command will build the project with HD resolution, set English as the initial language, make German, English, Spanish, French, and Portuguese available as languages, execute the `visualnovel.py` file, and output the executable to the `.../build` directory.
+
+Note that the directory path should exist prior to running the command.
